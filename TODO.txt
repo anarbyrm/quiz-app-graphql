@@ -11,11 +11,11 @@ TASKS:
     - ✅ project structure
     - ✅ Apollo server config
     - ✅ mongoDB config
-    - schema and resolver config
+    - ✅ schema and resolver config
     
     #progress
-    - design models
-    - define models
+    - ✅ design models
+    - ✅ define models
     - create DataSource with MongoDB
     - add typeDefs
     - add resolvers
