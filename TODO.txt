@@ -7,10 +7,7 @@ Tech stach:
 
 TASKS:
     #initial
-    - Project setup
-        - npm install
-        - TypeScript
-        - nodemon
+    - ✅ Project setup
     - project structure
     - Apollo server config
     - mongoDB config
