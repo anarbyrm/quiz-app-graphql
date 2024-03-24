@@ -9,7 +9,7 @@ TASKS:
     #initial
     - ✅ Project setup
     - ✅ project structure
-    - Apollo server config
+    - ✅ Apollo server config
     - mongoDB config
     - schema and resolver config
     
