@@ -4,13 +4,16 @@ import { startStandaloneServer } from "@apollo/server/standalone"
 import { typeDefs } from "./schema";
 import { resolvers } from "./resolvers";
 
-const startApolloServer = async () => {
+export const startApolloServer = async (port: number) => {
     const server = new ApolloServer({
         typeDefs,
         resolvers
     });
-    const { url } = await startStandaloneServer(server);
-    console.log(`Server is running... You can access the server on: ${url}`);
+    const { url } = await startStandaloneServer(server, {
+        listen: {
+            port
+        }
+    });
+    return url;
 }
 
-export default startApolloServer;

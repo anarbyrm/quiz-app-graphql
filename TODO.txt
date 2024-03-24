@@ -10,7 +10,7 @@ TASKS:
     - ✅ Project setup
     - ✅ project structure
     - ✅ Apollo server config
-    - mongoDB config
+    - ✅ mongoDB config
     - schema and resolver config
     
     #progress
