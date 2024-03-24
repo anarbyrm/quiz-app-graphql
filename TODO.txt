@@ -1,0 +1,24 @@
+Tech stach:
+- Node.js
+- TypeScript
+- GraphQL
+- MongoDB
+
+
+TASKS:
+    #initial
+    - Project setup
+        - npm install
+        - TypeScript
+        - nodemon
+    - project structure
+    - Apollo server config
+    - mongoDB config
+    - schema and resolver config
+    
+    #progress
+    - design models
+    - define models
+    - create DataSource with MongoDB
+    - add typeDefs
+    - add resolvers
