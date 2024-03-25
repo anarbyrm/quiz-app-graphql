@@ -1,25 +1,14 @@
 import * as mongoose from "mongoose";
 
+import {
+    ITopic,
+    IAnswer,
+    IQuestion,
+    TopicModel,
+    AnswerModel,
+    QuestionModel
+} from "../interfaces/models";
 
-
-interface ITopic {
-    name: string
-}
-
-interface IAnswer {
-    body: string
-    isCorrect: boolean
-}
-
-interface IQuestion {
-    body: string;
-    topics: ITopic[];
-    answers: IAnswer[];
-}
-
-type TopicModel = mongoose.Model<ITopic>
-type AnswerModel = mongoose.Model<IAnswer>
-type QuestionModel = mongoose.Model<IQuestion>
 
 const topicSchema = new mongoose.Schema<ITopic, TopicModel>({
     name: {

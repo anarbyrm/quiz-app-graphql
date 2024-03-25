@@ -6,9 +6,9 @@ export interface IQuestionInput {
 
 export interface IAnswerInput {
     body: string;
-    isCorrect: boolean
+    isCorrect: boolean;
 }
 
 export interface ITopicInput {
-    name: string
+    name: string;
 }
