@@ -6,6 +6,8 @@ export const typeDefs = `#graphql
 
     type Mutation {
         createQuestion(input: QuestionInput!): Question!
+        deleteQuestion(id: ID!): Question!
+        updateQuestion(id: ID!, input: QuestionInput!): Question!
     }
 
     input QuestionInput {

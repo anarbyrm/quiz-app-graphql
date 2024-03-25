@@ -1,5 +1,4 @@
-import { IQuestionInput } from "../interfaces/quiz"
-import { QuizDataSource } from "./dataSources/quiz";
+import { IQuestionInput, IQuizContextValue } from "../interfaces/quiz"
 
 
 export const resolvers = {
@@ -7,13 +6,14 @@ export const resolvers = {
         questions: async (
             _: undefined, 
             __: undefined, 
-            { dataSource }: { dataSource: { quizDS: QuizDataSource} }) => {
+            { dataSource }: IQuizContextValue
+        ) => {
             return await dataSource.quizDS.getQuestions();
         },
         question: async (
             _: undefined, 
             { id }: { id: string }, 
-            { dataSource }: { dataSource: { quizDS: QuizDataSource} }
+            { dataSource }: IQuizContextValue
         ) => {
             return await dataSource.quizDS.getOneQuestion(id);
         }
@@ -22,9 +22,23 @@ export const resolvers = {
         createQuestion: async (
             _: undefined, 
             { input }: { input: IQuestionInput }, 
-            { dataSource }: { dataSource: { quizDS: QuizDataSource} }
+            { dataSource }: IQuizContextValue
         ) => {
             return await dataSource.quizDS.createQuestion(input);
+        },
+        deleteQuestion: async (
+            _: undefined, 
+            { id }: { id: string},
+            { dataSource }: IQuizContextValue  
+        ) => {
+            return await dataSource.quizDS.deleteQuestion(id);
+        },
+        updateQuestion: async (
+            _: undefined, 
+            { id, input }: { id: string, input: IQuestionInput },
+            { dataSource }: IQuizContextValue
+        ) => {
+            // TODO
         }
     }
 }

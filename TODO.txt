@@ -16,6 +16,14 @@ TASKS:
     #progress
     - ✅ design models
     - ✅ define models
-    - create DataSource with MongoDB
+    - ✅ create DataSource with MongoDB
     - ✅ add typeDefs
     - ✅ add resolvers
+
+    #Mutation:
+    - update question
+    - delete question
+
+    #Query:
+    - add filters for questions
+    - add pagination

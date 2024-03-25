@@ -1,3 +1,5 @@
+import { QuizDataSource } from "../graphql/dataSources/quiz";
+
 export interface IQuestionInput {
     body: string;
     answers: IAnswerInput[]; 
@@ -11,4 +13,10 @@ export interface IAnswerInput {
 
 export interface ITopicInput {
     name: string;
+}
+
+export interface IQuizContextValue {
+    dataSource: {
+        quizDS: QuizDataSource
+    }
 }

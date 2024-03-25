@@ -76,4 +76,36 @@ export class QuizDataSource {
             await session.endSession();
         }
     }
+
+    async deleteQuestion(id: string) {
+        const session = await mongoose.startSession();
+        session.startTransaction();
+
+        try {
+
+            const existingQuestion = await Question.findById(id);
+
+            if (!existingQuestion) {
+                throw new Error(`Question with id ${id} does not exist.`);
+            }
+
+            // delete all answers related to question
+            const deletedAnswers = Answer.deleteMany({ _id: { $in: existingQuestion.answers } }).session(session);
+
+            const question = await existingQuestion.populate("answers topics");
+
+            // execute both promises simultaneously
+            await Promise.all([ deletedAnswers, question.deleteOne({ session: session }) ]);
+
+            await session.commitTransaction();
+            return question;
+
+        } catch (err) {
+            session.abortTransaction();
+            throw err;
+
+        } finally {
+            session.endSession();
+        }
+    }
 }
