@@ -1,5 +1,7 @@
 import * as mongoose from "mongoose";
 
+
+
 interface ITopic {
     name: string
 }
@@ -15,7 +17,11 @@ interface IQuestion {
     answers: IAnswer[];
 }
 
-const topicSchema = new mongoose.Schema<ITopic>({
+type TopicModel = mongoose.Model<ITopic>
+type AnswerModel = mongoose.Model<IAnswer>
+type QuestionModel = mongoose.Model<IQuestion>
+
+const topicSchema = new mongoose.Schema<ITopic, TopicModel>({
     name: {
         type: String,
         required: true,
@@ -23,7 +29,7 @@ const topicSchema = new mongoose.Schema<ITopic>({
     }
 })
 
-const answerSchema = new mongoose.Schema<IAnswer>({
+const answerSchema = new mongoose.Schema<IAnswer, AnswerModel>({
     body: {
         type: String,
         required: true
@@ -34,11 +40,10 @@ const answerSchema = new mongoose.Schema<IAnswer>({
     }
 })
 
-const questionSchema = new mongoose.Schema<IQuestion>({
+const questionSchema = new mongoose.Schema<IQuestion, QuestionModel>({
     body: {
         type: String,
-        required: true,
-        unique: true
+        required: true
     },
     topics: [{
         type: mongoose.Types.ObjectId,
@@ -51,9 +56,9 @@ const questionSchema = new mongoose.Schema<IQuestion>({
 })
 
 
-const Topic = mongoose.model<ITopic>("Topic", topicSchema);
-const Answer = mongoose.model<IAnswer>("Answer", answerSchema);
-const Question = mongoose.model<IQuestion>("Question", questionSchema);
+const Topic = mongoose.model<ITopic, TopicModel>("Topic", topicSchema);
+const Answer = mongoose.model<IAnswer, AnswerModel>("Answer", answerSchema);
+const Question = mongoose.model<IQuestion, QuestionModel>("Question", questionSchema);
 
 
 export {

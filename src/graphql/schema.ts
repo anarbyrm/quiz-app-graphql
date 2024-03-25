@@ -4,6 +4,25 @@ export const typeDefs = `#graphql
         question(id: ID!): Question!
     }
 
+    type Mutation {
+        createQuestion(input: QuestionInput!): Question!
+    }
+
+    input QuestionInput {
+        body: String!
+        answers: [AnswerInput!]!
+        topics: [TopicInput!]!
+    }
+
+    input AnswerInput {
+        body: String!
+        isCorrect: Boolean!
+    }
+
+    input TopicInput {
+        name: String!
+    }
+
     type Question {
         _id: ID!
         body: String!

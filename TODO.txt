@@ -17,5 +17,5 @@ TASKS:
     - ✅ design models
     - ✅ define models
     - create DataSource with MongoDB
-    - add typeDefs
-    - add resolvers
+    - ✅ add typeDefs
+    - ✅ add resolvers
