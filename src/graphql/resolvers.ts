@@ -38,7 +38,7 @@ export const resolvers = {
             { id, input }: { id: string, input: IQuestionInput },
             { dataSource }: IQuizContextValue
         ) => {
-            // TODO
+            return await dataSource.quizDS.updateQuestion(id, input);
         }
     }
 }

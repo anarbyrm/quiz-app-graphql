@@ -21,8 +21,8 @@ TASKS:
     - ✅ add resolvers
 
     #Mutation:
-    - update question
-    - delete question
+    - ✅ update question
+    - ✅ delete question
 
     #Query:
     - add filters for questions

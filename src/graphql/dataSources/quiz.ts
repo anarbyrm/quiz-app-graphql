@@ -108,4 +108,16 @@ export class QuizDataSource {
             session.endSession();
         }
     }
+
+    async updateQuestion(id: string, input: IQuestionInput) {
+        const existingQuestion = await Question.findById(id);
+
+        if (!existingQuestion) {
+            throw new Error(`Question with id ${id} does not exist.`);
+        }
+
+        const question = await existingQuestion.updateOne({ body: input.body }).populate("answers topics");
+
+        return question;
+    }
 }
