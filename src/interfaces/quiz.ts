@@ -20,3 +20,8 @@ export interface IQuizContextValue {
         quizDS: QuizDataSource
     }
 }
+
+export interface IQuestionArgs {
+    limit?: number;
+    offset?: number;
+}

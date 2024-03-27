@@ -1,14 +1,14 @@
-import { IQuestionInput, IQuizContextValue } from "../interfaces/quiz"
+import { IQuestionArgs, IQuestionInput, IQuizContextValue } from "../interfaces/quiz"
 
 
 export const resolvers = {
     Query: {
         questions: async (
             _: undefined, 
-            __: undefined, 
+            args: IQuestionArgs, 
             { dataSource }: IQuizContextValue
         ) => {
-            return await dataSource.quizDS.getQuestions();
+            return await dataSource.quizDS.getQuestions(args);
         },
         question: async (
             _: undefined, 

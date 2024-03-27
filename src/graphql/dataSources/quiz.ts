@@ -1,11 +1,19 @@
 import mongoose from "mongoose";
 import { Question, Answer, Topic } from "../../models/quiz";
-import { IQuestionInput } from "../../interfaces/quiz";
+import { IQuestionArgs, IQuestionInput } from "../../interfaces/quiz";
 
 
 export class QuizDataSource {
-    async getQuestions() {
-        return await Question.find().populate('answers topics');
+    async getQuestions(args: IQuestionArgs) {
+
+        let questions = Question.find();
+
+        // pagination
+        let { limit = 10, offset = 0 } = args;
+
+        questions.limit(limit).skip(offset);
+
+        return await questions.populate('answers topics');
     }
 
     async getOneQuestion(id: string) {

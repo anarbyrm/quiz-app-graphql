@@ -1,6 +1,6 @@
 export const typeDefs = `#graphql
     type Query {
-        questions: [Question]!
+        questions(limit: Number, offset: Number): [Question]!
         question(id: ID!): Question!
     }
 
