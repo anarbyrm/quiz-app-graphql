@@ -25,5 +25,5 @@ TASKS:
     - ✅ delete question
 
     #Query:
-    - add filters for questions
-    - add pagination
+    - ✅ add filters for questions
+    - ✅ add pagination

@@ -8,6 +8,12 @@ export class QuizDataSource {
 
         let questions = Question.find();
 
+        let { query: { search } } = args;
+
+        if (search) {
+            questions = questions.find({ body: { $regex: search, $options: 'i' } });
+        }
+
         // pagination
         let { limit = 10, offset = 0 } = args;
 

@@ -21,7 +21,12 @@ export interface IQuizContextValue {
     }
 }
 
+interface Params {
+    search?: string;
+}
+
 export interface IQuestionArgs {
     limit?: number;
     offset?: number;
+    query?: Params;
 }
